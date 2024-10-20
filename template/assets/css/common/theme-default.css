@@ -1,0 +1,206 @@
+/* DEFAULT ==================== */
+/* HEADER ==================== */
+/* PRODUCT CARD ==================== */
+/* JOURNAL CARD ==================== */
+/* DIRECTORY ==================== */
+/* CHOOSE VIEW ==================== */
+/* TEMPLATE SECTION 2 SIDES ==================== */
+
+/* DEFAULT ==================== */
+.sc {
+    width: 100vw;
+}
+
+.container {
+    max-width: var(--container-max-width);
+    padding-left: var(--page-padding);
+    padding-right: var(--page-padding);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* HEADER ==================== */
+.social-links {
+    display: flex;
+    grid-gap: var(--spacing-24);
+}
+
+.social-links > a {
+    color: var(--color-yellow);
+    position: relative;
+    height: var(--30px);
+}
+
+.social-links > a::before {
+    content: "";
+    width: 0;
+    height: 1px;
+    background-color: var(--color-white);
+    display: block;
+    transition: var(--duration) var(--timing-function);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+html.no-touchevents .social-links > a:hover {
+    color: var(--color-white);
+    opacity: 1;
+}
+
+html.no-touchevents .social-links > a:hover::before {
+    width: 100%;
+}
+
+/* PRODUCT CARD ==================== */
+.product-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    grid-gap: var(--spacing-20);
+    cursor: pointer;
+    position: relative;
+}
+
+.product-card .product-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.product-card .product-image img {
+    width: 100%;
+    height: auto;
+    transition: var(--duration) var(--timing-function);
+}
+
+.product-card:hover .product-image img {
+    opacity: 0.7;
+}
+
+.product-card .product-info {
+    display: flex;
+    flex-direction: column;
+    grid-gap: var(--spacing-12);
+}
+
+.product-card .product-info .info {
+    display: flex;
+    flex-direction: column;
+    grid-gap: var(--spacing-6);
+}
+
+.product-card .product-info .info > *:empty {
+    display: none;
+}
+
+/* JOURNAL CARD ==================== */
+.journal-card {
+    display: flex;
+    cursor: pointer;
+    position: relative;
+}
+
+.journal-card.vertical {
+    flex-direction: column;
+    grid-gap: var(--spacing-12);
+}
+
+.journal-card .journal-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+}
+
+.journal-card.vertical .journal-info {
+    display: flex;
+    flex-direction: column;
+    grid-gap: var(--spacing-12);
+}
+
+/* DIRECTORY ==================== */
+.directory {
+    padding: var(--spacing-10) 0;
+    background-color: var(--color-gray-light3);
+}
+
+.directory .directory-content {
+    display: flex;
+    grid-gap: var(--spacing-10);
+    align-items: center;
+}
+
+.directory .directory-content > * {
+    font-size: var(--font-size-subtitle3);
+    line-height: var(--line-height-subtitle3);
+    color: var(--color-gray-dark2);
+    display: flex;
+}
+
+.directory .directory-content > a:hover > p {
+    text-decoration: underline;
+    text-underline-offset: 2.5px;
+}
+
+.directory .directory-content > *:not(:last-child)::after {
+    content: "\e90a";
+    font-family: "iconfont";
+    font-size: var(--icon-size-10);
+    margin-left: var(--spacing-10);
+}
+
+/* CHOOSE VIEW ==================== */
+.choose-view {
+    padding: var(--spacing-20) 0;
+    margin-bottom: var(--spacing-20);
+}
+
+.choose-view .choose-view-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.choose-view .filter-tags {
+    display: flex;
+    grid-gap: var(--spacing-10);
+}
+
+.choose-view .filter-tags .filter-tag {
+    display: flex;
+    grid-gap: var(--spacing-20);
+    align-items: center;
+    padding: var(--spacing-6) var(--spacing-20);
+    background-color: var(--color-gray-light3);
+    border-radius: 18px;
+    font-size: var(--font-size-subtitle3);
+    line-height: var(--line-height-subtitle3);
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+}
+
+.choose-view .choose-view-items {
+    display: flex;
+    grid-gap: var(--spacing-10);
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.choose-view .choose-view-items .choose-view-item:hover {
+    opacity: 0.7;
+}
+
+/* TEMPLATE SECTION 2 SIDES ==================== */
+.template-2-sides {
+    display: flex;
+    grid-gap: var(--spacing-24);
+}
+
+.template-2-sides .template-2-sides-aside {
+    width: min(14.5833333333vw, var(--280px));
+}
+
+.template-2-sides .template-2-sides-content {
+    flex: 1;
+}
