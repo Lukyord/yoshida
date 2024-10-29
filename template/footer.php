@@ -1,38 +1,3 @@
-<style>
-    @media (min-width:992px) {
-        .footer-grids {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: auto 1fr;
-            grid-auto-flow: dense;
-        }
-
-        .footer-grids>*[data-grid="social"] {
-            grid-column: 4;
-            grid-row: span 2;
-        }
-
-        .footer-grids>*[data-grid="main"] {
-            grid-column: 1;
-            grid-row: span 2;
-        }
-
-        .footer-grids>*[data-grid="help"] {
-            grid-column: 2;
-            grid-row: span 2;
-        }
-
-        .footer-grids>*[data-grid="company"] {
-            grid-column: 3;
-        }
-
-        .footer-grids>*[data-grid="about"] {
-            grid-column: 3;
-            grid-row: 2;
-        }
-    }
-</style>
-
 <footer id="footer">
     <div id="scroll-to-top" class="footer-scroll-top">
         <p>SCROLL TOP</p>
@@ -42,7 +7,7 @@
             <div class="footer-grid" data-grid="social">
                 <div class="social-links">
                     <a href="#outer"><i class="size-icon-20 ic ic-instagram"></i></a>
-                    <a href="#outer"><i class="size-icon-20 ic ic-facebook"></i></a>
+                    <a href="#outer"><i class="size-icon-20 ic ic-facebook-no-bg"></i></a>
                     <a href="#outer"><i class="size-icon-20 ic ic-twitter"></i></a>
                     <a href="#outer"><i class="size-icon-20 ic ic-line"></i></a>
                     <a href="#outer"><i class="size-icon-20 ic ic-youtube"></i></a>
@@ -105,8 +70,8 @@
             </div>
             <div class="language">
                 <form action="javascript:;">
-                    <label class="description size-subtitle2 weight-bold">LANGUAGE</label>
-                    <select id="languageSelect" class="language-select" data-placeholder="">
+                    <label for="" class="description size-subtitle2 weight-bold">LANGUAGE</label>
+                    <select id="language-select" class="language-select dynamic-select" data-placeholder="">
                         <option value="Option1" selected>English</option>
                         <option value="Option2">ภาษาไทย</option>
                         <option value="Option3">Language 3</option>
@@ -146,12 +111,18 @@
 <script src="<?php echo $root; ?>assets/plugin/gsap/ScrollTrigger.min.js"></script>
 <script src="<?php echo $root; ?>assets/plugin/gsap/ScrollToPlugin.min.js"></script>
 <script src="<?php echo $root; ?>assets/plugin/gsap/Flip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/igorlino/elevatezoom-plus@1.2.3/src/jquery.ez-plus.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
 <!-- JS:CONFIG -->
 <script src="<?php echo $root; ?>assets/js/common/theme.js?v=<?php echo time(); ?>"></script>
 <script src="<?php echo $root; ?>assets/js/common/theme-wp.js?v=<?php echo time(); ?>"></script>
 <script src="<?php echo $root; ?>assets/js/common/util.js?v=<?php echo time(); ?>"></script>
 <script src="<?php echo $root; ?>assets/js/index.js?v=<?php echo time(); ?>"></script>
+<script src="<?php echo $root; ?>assets/js/product-single.js?v=<?php echo time(); ?>"></script>
+<script src="<?php echo $root; ?>assets/js/shop-map.js?v=<?php echo time(); ?>"></script>
+<script src="<?php echo $root; ?>assets/js/shop-single.js?v=<?php echo time(); ?>"></script>
+<script src="<?php echo $root; ?>assets/js/template.js?v=<?php echo time(); ?>"></script>
 
 </body>
 

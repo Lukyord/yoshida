@@ -1,0 +1,95 @@
+/* TEMPLATE ====================*/
+
+/* TEMPLATE SECTION ====================*/
+.template .container > .title {
+    padding-top: 0;
+}
+
+.template .template-filter {
+    display: flex;
+    flex-direction: column;
+    grid-gap: var(--spacing-24);
+}
+
+.template .break-lg:has(.panel.active) .panel-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Story */
+.story .content-card:first-child .image {
+    width: 100%;
+    aspect-ratio: 1.7117647059;
+    max-width: unset;
+}
+
+.story .content-card:first-child .description {
+    font-size: var(--font-size-h3);
+    line-height: var(--line-height-h3);
+    font-weight: var(--font-weight-bold);
+}
+
+@media (min-width: 992px) {
+    .content-container.view-item-list {
+        display: flex;
+        flex-direction: column;
+        grid-gap: var(--spacing-24);
+    }
+
+    .content-container.view-item-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: var(--spacing-12);
+        row-gap: var(--spacing-50);
+    }
+
+    /* Story */
+    *:is(.story-main, .story-single-main) .content-card .description {
+        text-transform: uppercase;
+    }
+}
+
+@media (max-width: 991px) {
+    .content-container {
+        display: flex;
+        flex-direction: column;
+        grid-gap: var(--spacing-40);
+    }
+
+    /* Story */
+    .story .content-card.horizontal.content:first-child {
+        width: 100vw;
+        transform: translateX(calc(-1 * var(--page-padding)));
+        flex-direction: column;
+        grid-gap: 0;
+    }
+
+    .story .content-card.horizontal.content:first-child .image {
+        aspect-ratio: 1.7117647059;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .story .content-card.horizontal.content:first-child .text-content {
+        padding: var(--spacing-24);
+    }
+
+    *:is(.story, .story-single-main) .content-card.horizontal.content {
+        flex-direction: row;
+    }
+
+    *:is(.story, .story-single-main) .content-card.horizontal.content .image {
+        width: 51%;
+    }
+
+    *:is(.story, .story-single-main)
+        .content-card.horizontal.content
+        .description {
+        color: var(--color-black);
+        font-weight: var(--font-weight-bold);
+    }
+
+    *:is(.story, .story-single-main) .content-container {
+        grid-gap: var(--spacing-24);
+    }
+}

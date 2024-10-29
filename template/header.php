@@ -33,6 +33,8 @@ $page_index = ($page == basename(dirname($_SERVER['PHP_SELF']), "/") || $page ==
     <link rel="stylesheet" href="<?php echo $root; ?>assets/plugin/magnific-popup/magnific-popup.min.css">
     <link rel="stylesheet" href="<?php echo $root; ?>assets/plugin/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="<?php echo $root; ?>assets/plugin/liMarquee/liMarquee.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+
     <!-- CSS:CONFIG -->
     <link rel="stylesheet" href="<?php echo $root; ?>assets/css/common/font.css">
     <link rel="stylesheet" href="<?php echo $root; ?>assets/css/common/iconfont.css">
@@ -44,6 +46,15 @@ $page_index = ($page == basename(dirname($_SERVER['PHP_SELF']), "/") || $page ==
     <link rel="stylesheet" href="<?php echo $root; ?>assets/css/footer.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="<?php echo $root; ?>assets/css/header.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="<?php echo $root; ?>assets/css/index.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="<?php echo $root; ?>assets/css/products.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="<?php echo $root; ?>assets/css/products-ranking.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="<?php echo $root; ?>assets/css/product-single.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="<?php echo $root; ?>assets/css/shop-map.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="<?php echo $root; ?>assets/css/shop-single.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="<?php echo $root; ?>assets/css/template.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="<?php echo $root; ?>assets/css/template-single.css?v=<?php echo time(); ?>">
+
+
     <!-- JS:LIBRARY -->
     <script src="<?php echo $root; ?>assets/js/library/modernizr-custom.js"></script>
     <script src="<?php echo $root; ?>assets/js/library/jquery-3.6.0.min.js"></script>
@@ -59,7 +70,7 @@ $page_index = ($page == basename(dirname($_SERVER['PHP_SELF']), "/") || $page ==
     <div id="page" class="<?php if ($page == '404.php') {
                                 echo 'error-page';
                             } ?>">
-        <div id="personal-header" class="hidden-mobile">
+        <div id="personal-header" class="show-sm">
             <div class="container xl">
                 <ul class="menu size-subtitle3">
                     <li><a href="#favorite">Favorite</a></li>
@@ -68,7 +79,7 @@ $page_index = ($page == basename(dirname($_SERVER['PHP_SELF']), "/") || $page ==
         </div>
         <header id=" header" class="navbar">
             <div class="header-nav container xl">
-                <div class="header-menu-ctrl hidden-device-md">
+                <div class="header-menu-ctrl hidden-device-sm">
                     <a class="ctrl" href="javascript:;">
                         <span class="hamburger"><span class="bars">&nbsp;</span></span>
                     </a>
@@ -82,7 +93,7 @@ $page_index = ($page == basename(dirname($_SERVER['PHP_SELF']), "/") || $page ==
                 </div>
 
                 <div class="header-menu">
-                    <div class="panel-overlay hidden-device-md">
+                    <div class="panel-overlay hidden-device-sm">
                         <div class="panel-overlay-inner">
                             <a href="javascript:;" class="panel-overlay-close">
                                 <i class="ic ic-close c-white size-icon-16"></i>
@@ -91,7 +102,7 @@ $page_index = ($page == basename(dirname($_SERVER['PHP_SELF']), "/") || $page ==
                         </div>
                     </div>
                     <div class="panel">
-                        <div class="panel-search hidden-device-md">
+                        <div class="panel-search hidden-device-sm">
                             <div class="heading">
                                 <div class="emty-spacer">&nbsp;</div>
                                 <a href="<?php echo $root; ?>index.php" class="panel-logo">
@@ -122,27 +133,33 @@ $page_index = ($page == basename(dirname($_SERVER['PHP_SELF']), "/") || $page ==
                                 <div class="panel-body">
                                     <ul class="menu size-button1">
                                         <li id="product-breadcrumb-trigger" class="breadcrumb-trigger">
-                                            <a href="javascript:;">Product <i class="ic ic-chevron-down size-icon-10 hidden-mobile"></i></a>
+                                            <a href="<?php echo $root; ?>products.php">Product <i class="ic ic-chevron-down size-icon-10 show-sm"></i></a>
                                         </li>
                                         <li id="shop-breadcrumb-trigger" class="breadcrumb-trigger">
-                                            <a href="javascript:;">Shop <i class="ic ic-chevron-down size-icon-10 hidden-mobile"></i></a>
+                                            <a href="<?php echo $root; ?>shop.php">Shop <i class="ic ic-chevron-down size-icon-10 show-sm"></i></a>
                                         </li>
                                         <li id="journal-breadcrumb-trigger" class="breadcrumb-trigger">
-                                            <a href="javascript:;">Journal <i class="ic ic-chevron-down size-icon-10 hidden-mobile"></i></a>
+                                            <a href="<?php echo $root; ?>news.php">Journal <i class="ic ic-chevron-down size-icon-10 show-sm"></i></a>
                                         </li>
                                         <li id="empty-breadcrumb-trigger" class="breadcrumb-trigger">
                                             <a href="<?php echo $root; ?>story.php">Story</a>
                                         </li>
+                                        <li class="hidden-device-sm">
+                                            <a href="<?php echo $root; ?>products-ranking.php">Ranking</a>
+                                        </li>
+                                        <li class="hidden-device-sm">
+                                            <a href="#email-subscription">E-mail Magazine</a>
+                                        </li>
                                     </ul>
-                                    <ul class=" menu size-button1 hidden-device-md margin-top-60">
+                                    <ul class=" menu size-button1 hidden-device-sm margin-top-60">
                                         <li><a href="javascript:;">Login</a></li>
                                         <li><a href="javascript:;">New member registration</a></li>
                                     </ul>
                                 </div>
-                                <div class=" panel-footer hidden-device-md c-white">
+                                <div class=" panel-footer hidden-device-sm c-white">
                                     <div class="social-links">
                                         <a href="#outer"><i class="size-icon-20 ic ic-instagram"></i></a>
-                                        <a href="#outer"><i class="size-icon-20 ic ic-facebook"></i></a>
+                                        <a href="#outer"><i class="size-icon-20 ic ic-facebook-no-bg"></i></a>
                                         <a href="#outer"><i class="size-icon-20 ic ic-twitter"></i></a>
                                         <a href="#outer"><i class="size-icon-20 ic ic-line"></i></a>
                                         <a href="#outer"><i class="size-icon-20 ic ic-youtube"></i></a>
@@ -170,15 +187,15 @@ $page_index = ($page == basename(dirname($_SERVER['PHP_SELF']), "/") || $page ==
                     </div>
                 </div>
 
-                <div class="header-search">
+                <!-- <label class="label anim fixed" for="search">
+                                                        <p class="size-overline">Are you looking for something?</p>
+                                                    </label> -->
+                <div class="header-search show-sm" id="header-search-pc">
                     <form action="javascript:;" class="header-search-bar">
                         <div class="fields">
                             <div class="field">
                                 <div class="input">
                                     <span class="magnifying-glass"><i class="ic ic-magnifying_glass"></i></span>
-                                    <!-- <label class="label anim fixed" for="search">
-                                                        <p class="size-overline">Are you looking for something?</p>
-                                                    </label> -->
                                     <input type="text" name="search" id="search" autocomplete="off" placeholder="Are you looking for something?">
                                 </div>
                             </div>
@@ -206,9 +223,17 @@ $page_index = ($page == basename(dirname($_SERVER['PHP_SELF']), "/") || $page ==
 
                 ?>
             </div>
-
-
-
-
-
         </header>
+
+        <div class="header-search hidden-device-sm" id="header-search-mobile">
+            <form action="javascript:;" class="header-search-bar">
+                <div class="fields">
+                    <div class="field">
+                        <div class="input">
+                            <span class="magnifying-glass"><i class="ic ic-magnifying_glass"></i></span>
+                            <input type="text" name="search" id="search" autocomplete="off" placeholder="Are you looking for something?">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>

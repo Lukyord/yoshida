@@ -675,9 +675,19 @@ jQuery(function ($) {
                 });
             });
 
+        if ($(this).hasClass("trigger-all")) {
+            $(this).find("> .accordion").addClass("active");
+            $(this).find("> .accordion > .entry-panel").show();
+        }
+
         if ($(this).hasClass("trigger-first")) {
             $(this).find("> .accordion:first-child").addClass("active");
             $(this).find("> .accordion:first-child > .entry-panel").show();
+        }
+
+        if ($(this).hasClass("trigger-second")) {
+            $(this).find("> .accordion:nth-child(2)").addClass("active");
+            $(this).find("> .accordion:nth-child(2) > .entry-panel").show();
         }
 
         var triggerClass = $(this)
@@ -1382,8 +1392,8 @@ jQuery(function ($) {
     });
 
     // ADJUST LANGUAGE SELECT WIDTH
-    function adjustSelectWidth() {
-        var select = $("#languageSelect");
+    function adjustSelectWidth(selectElement) {
+        var select = $(selectElement);
         var tempOption = $("<span>")
             .text(select.find("option:selected").text())
             .css({
@@ -1398,13 +1408,17 @@ jQuery(function ($) {
         tempOption.remove();
     }
 
-    adjustSelectWidth();
+    function adjustAllSelects() {
+        $(".dynamic-select").each(function () {
+            adjustSelectWidth(this);
+        });
+    }
 
-    $("#languageSelect").on("change", function () {
-        adjustSelectWidth();
+    $(".dynamic-select").on("change", function () {
+        adjustSelectWidth(this);
     });
 
-    onWindowResize(adjustSelectWidth, 200);
+    onWindowResize(adjustAllSelects, 200);
 
     // FOOTER SCROLL TO TOP
     $("#scroll-to-top > p").click(function () {
@@ -1431,19 +1445,225 @@ jQuery(function ($) {
     });
 });
 
+// GENERIC MOBILE MENU
+jQuery(function ($) {
+    //MENU CONTROL
+    function openPanel(panelId, unlockScroll) {
+        var panel = $("#" + panelId);
+        $("html").addClass("panel-enabled");
+        if (!unlockScroll) {
+            $("html, body").addClass("no-scroll");
+        }
+        panel.find(".panel").addClass("active");
+        panel.find(".panel-scroll").animate({ scrollTop: 0 }, 500);
+        setTimeout(function () {
+            panel.addClass("open");
+        }, 100);
+    }
+
+    function closePanel(panelId) {
+        var panel = $("#" + panelId);
+        panel.removeClass("open");
+        $("html").removeClass("panel-enabled");
+        $("html, body").removeClass("no-scroll");
+        panel.find(".panel").removeClass("active");
+        setTimeout(function () {
+            panel.find(".panel-scroll").animate({ scrollTop: 0 }, 500);
+        }, 500);
+    }
+
+    $(".panel-trigger").click(function () {
+        var panelId = $(this).data("target");
+        var unlockScroll = $(this).hasClass("unlock-scroll");
+        var panel = $("#" + panelId);
+
+        if (panelId && panel.length) {
+            if (panel.hasClass("open")) {
+                closePanel(panelId);
+                $(this).removeClass("active");
+            } else {
+                openPanel(panelId, unlockScroll);
+                $(this).addClass("active");
+            }
+        }
+    });
+
+    $(".panel-overlay, .panel-close").click(function () {
+        var panel = $(this).closest(".mobile-panel").attr("id");
+
+        if (!panel) {
+            $(".mobile-panel").each(function () {
+                var panelId = $(this).attr("id");
+                closePanel(panelId);
+            });
+        }
+        if (panel) {
+            closePanel(panel);
+        }
+    });
+});
+
+// SYNC SELECT OPTIONS INTO MOBILE MENU
+jQuery(function ($) {
+    function createMobileSelectOptions($select) {
+        var $mobileOptionsContainer = $(
+            ".mobile-select-options[data-target='" + $select.attr("id") + "']"
+        );
+
+        // Clear any existing options
+        $mobileOptionsContainer.empty();
+
+        // Loop through the select options
+        $select.find("option").each(function () {
+            var $option = $(this);
+            var $optionItem = $("<div>")
+                .addClass("option-item")
+                .text($option.text())
+                .attr("data-value", $option.val());
+
+            if ($select.attr("id") === "display-size") {
+                $optionItem.addClass("choose-view-item");
+                $optionItem.attr(
+                    "data-container-id",
+                    $select.data("container-id")
+                );
+
+                if ($option.val() === "large") {
+                    $optionItem.attr("data-view", "view-item-large");
+                }
+                if ($option.val() === "small") {
+                    $optionItem.attr("data-view", "view-item-small");
+                }
+            }
+
+            // On click, change the select value and trigger a change event
+            $optionItem.on("click", function () {
+                $select.val($(this).data("value")).trigger("change");
+            });
+
+            $mobileOptionsContainer.append($optionItem);
+        });
+
+        syncMobileSelect($select);
+    }
+
+    function syncMobileSelect($select) {
+        var $mobileOptionsContainer = $(
+            ".mobile-select-options[data-target='" + $select.attr("id") + "']"
+        );
+
+        // Remove active state from all option items
+        $mobileOptionsContainer.find(".option-item").removeClass("active");
+
+        // Add active state to the selected option
+        var selectedValue = $select.val();
+        $mobileOptionsContainer
+            .find(".option-item")
+            .filter(function () {
+                return $(this).data("value") === selectedValue;
+            })
+            .addClass("active");
+    }
+
+    // Initialize the mobile select options for all dynamic selects
+    $(".dynamic-select").each(function () {
+        var $select = $(this);
+        createMobileSelectOptions($select);
+
+        // Keep the select and mobile options in sync on change
+        $select.on("change", function () {
+            syncMobileSelect($select);
+        });
+    });
+});
+
+jQuery(function ($) {
+    function updateSortbyValue() {
+        var selectedValues = [];
+
+        // Loop through each select element
+        $(".products-sortby .dynamic-select").each(function () {
+            var $select = $(this);
+            var selectedText = $select.find("option:selected").text(); // Get the text of the selected option
+            selectedValues.push(selectedText); // Add to array
+        });
+
+        // Append the selected values to the #sortby-value element
+        $("#sortby-value").text(selectedValues.join(", "));
+    }
+
+    // Run the update function when the page loads
+    updateSortbyValue();
+
+    // Attach the event handler for change on any select
+    $(".products-sortby .dynamic-select").on("change", function () {
+        updateSortbyValue();
+    });
+});
+
+// CHANGE VIEW
+jQuery(function ($) {
+    $(".choose-view-item").each(function () {
+        var _this = $(this);
+        var viewClass = _this.data("view");
+        var viewTarget = _this.data("container-id");
+        var viewSelect = $("select#display-size");
+
+        _this.click(function () {
+            var target = $("#" + viewTarget);
+
+            $(".choose-view-item").removeClass("active");
+            $(this).addClass("active");
+
+            target.removeClass(function (index, className) {
+                return (className.match(/(^|\s)view-\S+/g) || []).join(" ");
+            });
+            target.addClass(viewClass);
+
+            if (viewClass === "view-item-large") {
+                viewSelect.val("large").trigger("change");
+            } else if (viewClass === "view-item-small") {
+                viewSelect.val("small").trigger("change");
+            }
+
+            if ($(".content-card .title").length) {
+                console.log("title");
+                $(".content-card .title").matchHeight({
+                    byRow: true,
+                });
+            }
+        });
+    });
+});
+
+// PRODUCT CARD: CHANGE IMAGE
+jQuery(function ($) {
+    $(".product-card").on("mouseenter", ".variant", function () {
+        var newImage = $(this).data("image"); // Get the image source from the data attribute
+        $(this)
+            .closest(".product-card")
+            .find(".product-image img")
+            .attr("src", newImage);
+    });
+
+    $(".product-card").on("mouseleave", function () {
+        var defaultImage = $(this).find(".variant").first().data("image"); // Get the first variant's image
+        $(this).find(".product-image img").attr("src", defaultImage);
+    });
+});
 // EFFECT
 
 // ===== LENIS =====
-const lenis = new Lenis();
+// const lenis = new Lenis();
 
-lenis.on("scroll", (e) => {});
+// lenis.on("scroll", (e) => {});
 
-function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-}
+// function raf(time) {
+//     lenis.raf(time);
+//     requestAnimationFrame(raf);
+// }
 
-requestAnimationFrame(raf);
+// requestAnimationFrame(raf);
 
 // ===== GSAP =====
 // let panels = gsap.utils.toArray(".gsap-panel");

@@ -1,0 +1,31 @@
+/* PRODUCTS-RANKING ====================*/
+
+/* PRODUCTS-RANKING SECTION ====================*/
+.products-ranking-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: var(--spacing-16);
+}
+
+.products-ranking .all-items-button {
+    text-align: center;
+    padding-top: var(--spacing-40);
+    padding-bottom: var(--spacing-80);
+}
+
+@media (max-width: 767px) {
+    .products-ranking-grid {
+        padding-top: var(--spacing-20);
+    }
+}
+
+@media (max-width: 767px) {
+    .products-ranking-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .products-ranking .all-items-button {
+        padding-top: var(--spacing-30);
+        padding-bottom: var(--spacing-60);
+    }
+}

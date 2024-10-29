@@ -1,9 +1,4 @@
 /* INDEX ====================*/
-@media (max-width: 767px) {
-    .index-main {
-        padding-top: var(--header-height);
-    }
-}
 
 /* INDEX BUTLER ====================*/
 .index-butler {
@@ -12,7 +7,6 @@
     bottom: var(--spacing-30);
     z-index: 80;
     cursor: pointer;
-    display: none;
 }
 
 .index-butler .image {
@@ -33,7 +27,6 @@
     bottom: var(--spacing-30);
     z-index: 80;
     max-width: var(--314px);
-    display: none;
 }
 
 .index-notice .notice-container {
@@ -144,6 +137,11 @@ html.no-touchevents .poster-grid .poster-grid-item:hover .poster-content {
 
 .index-poster-grid .poster-content .name {
     line-height: 1.5 !important;
+}
+
+html.no-touchevents .poster-grid .poster-grid-item .button-des:hover {
+    filter: brightness(0.85);
+    opacity: 1;
 }
 
 @media (max-width: 767px) {

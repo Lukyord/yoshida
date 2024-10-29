@@ -151,8 +151,15 @@
         </div>
         <div class="recommend">
             <h3 class="title size-subtitle2 weight-bold margin-x-auto width-fit">RECOMMEND for YOU</h3>
-            <div class="product-grid">
+            <div class="breadcrumb-recommend-products-grid">
                 <?php
+                $product = array(
+                    "tags" => array(),
+                    "name" => "PORTER / TANKER",
+                    "category" => "WAIST BAG",
+                    "variant" => array(),
+                );
+
                 for ($i = 0; $i < 6; $i++) {
                     include 'element-product-card.php';
                 }

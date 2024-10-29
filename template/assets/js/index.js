@@ -1,19 +1,11 @@
 // INDEX NOTICE
 jQuery(function ($) {
-    if ($(".index-butler").length) {
-        $(".index-butler").hide();
-    }
-
-    if ($(".index-notice").length) {
-        $(".index-notice").hide();
-
-        $(".index-notice .close-btn").click(function () {
-            $(".index-notice").fadeOut();
-        });
-    }
+    $(".index-notice .close-btn").click(function () {
+        $(".index-notice").fadeOut();
+    });
 });
 
-// INDEX PICKUP PERODUCT
+// INDEX PICKUP PRODUCT
 jQuery(function ($) {
     if ($(".swiper.pickup-product").length) {
         $(".swiper.pickup-product").each(function () {

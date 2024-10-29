@@ -56,8 +56,8 @@
                         }
                         ?>
                     </div>
-                    <div class="pickup-product-swiper-button-prev swiper-button-prev hidden-mobile"></div>
-                    <div class="pickup-product-swiper-button-next swiper-button-next hidden-mobile"></div>
+                    <div class="pickup-product-swiper-button-prev swiper-button-prev show-sm"></div>
+                    <div class="pickup-product-swiper-button-next swiper-button-next show-sm"></div>
                 </div>
                 <div class="see-all-btn">
                     <a href="<?php echo $root; ?>product-single.php" class="button-des button-primary">See all</a>
