@@ -1,6 +1,7 @@
 :root {
     --1920px: 120rem;
     --1200px: 75rem;
+    --781px: 48.8125rem;
     --600px: 37.5rem;
     --500px: 31.25rem;
     --400px: 25rem;
@@ -59,6 +60,8 @@
     --color-gray-light2-rgb: 204, 204, 204;
     --color-gray-light3: #eaeaea;
     --color-gray-light3-rgb: 234, 234, 234;
+    --color-gray-light-accent: #F0F0F0;
+    --color-gray-light-accent-rgb: 240, 240, 240;
     --color-white: #ffffff;
     --color-white-rgb: 255, 255, 255;
     --color-white-t30: rgba(255, 255, 255, 0.3);
@@ -283,6 +286,11 @@
     --rgb: var(--color-white-rgb);
     --rgb-couple: var(--color-black-rgb);
     --filter: var(--filter-white);
+}
+.c-red {
+    color: var(--color-red) !important;
+    --rgb: var(--color-red-rgb);
+    --rgb-couple: var(--color-white-rgb);
 }
 .c-gray {
     color: var(--color-gray) !important;
@@ -1275,6 +1283,10 @@ a:hover {
 .button-des.button-primary {
     background-color: var(--color-gray-light);
     color: var(--color-white);
+}
+
+.button-des.button-primary.purple {
+background-color: var(--color-purple);
 }
 
 .button-des.button-secondary {

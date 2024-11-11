@@ -21,7 +21,7 @@
                     <li><a href="<?php echo $root; ?>news.php">Journal</a></li>
                     <li><a href="<?php echo $root; ?>story.php">Story</a></li>
                     <li><a href="<?php echo $root; ?>products-ranking.php">Ranking</a></li>
-                    <li><a href="#outer">E-mail Magazine</a></li>
+                    <li><a href="<?php echo $root; ?>email-subscribe.php">E-mail Magazine</a></li>
                 </ul>
 
                 <ul class="footer-links">

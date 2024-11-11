@@ -22,7 +22,7 @@
 .navbar {
     position: sticky;
     top: 0;
-    background-color: var(--color-gray-dark);
+    background-color: var(--color-purple);
     height: var(--header-height);
     z-index: 99;
 }
@@ -291,7 +291,7 @@ html.no-touchevents
     }
 
     .header-menu .panel-footer {
-        padding-bottom: var(--spacing-36);
+        padding-bottom: var(--spacing-100);
     }
 
     .header-menu .panel-footer .social-links {
