@@ -149,10 +149,6 @@
 <script src="<?php echo $root; ?>assets/js/common/theme.js?v=<?php echo time(); ?>"></script>
 <script src="<?php echo $root; ?>assets/js/common/theme-wp.js?v=<?php echo time(); ?>"></script>
 <script src="<?php echo $root; ?>assets/js/common/util.js?v=<?php echo time(); ?>"></script>
-<script src="<?php echo $root; ?>assets/js/index.js?v=<?php echo time(); ?>"></script>
-<script src="<?php echo $root; ?>assets/js/product-single.js?v=<?php echo time(); ?>"></script>
-<script src="<?php echo $root; ?>assets/js/shop-map.js?v=<?php echo time(); ?>"></script>
-<script src="<?php echo $root; ?>assets/js/shop-single.js?v=<?php echo time(); ?>"></script>
 <script src="<?php echo $root; ?>assets/js/template.js?v=<?php echo time(); ?>"></script>
 
 </body>
