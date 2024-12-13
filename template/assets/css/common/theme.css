@@ -117,7 +117,7 @@
     --font-size-body2: calc(0.66428571rem + 0.0952381vw);
     --font-size-subtitle2: var(--font-size-body);
     --font-size-subtitle3: var(--font-size-body2);
-    --font-size-button: var(--font-size-subtitle1);
+    --font-size-button1: var(--font-size-subtitle1);
     --font-size-button2: calc(0.70354821rem + 0.19057143vw);
     --font-size-overline: var(--10px);
 

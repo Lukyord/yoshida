@@ -1,5 +1,10 @@
 // ON WINDOW RESIZE CALLBACK =============================
-function onWindowResize(callback, delay = 300, executeOnLoad = true) {
+function onWindowResize(
+    callback,
+    delay = 300,
+    executeOnLoad = true,
+    initialCallback
+) {
     let lastWidth = $(window).width();
     let resizeTimeout;
 

@@ -147,7 +147,6 @@
                     </ul>
                 </div>
             </div>
-
         </div>
         <div class="recommend">
             <h3 class="title size-subtitle2 weight-bold margin-x-auto width-fit">RECOMMEND for YOU</h3>
