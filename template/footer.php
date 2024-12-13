@@ -6,11 +6,42 @@
         <div class="content-body">
             <div class="footer-grid" data-grid="social">
                 <div class="social-links">
-                    <a href="#outer"><i class="size-icon-20 ic ic-instagram"></i></a>
-                    <a href="#outer"><i class="size-icon-20 ic ic-facebook-no-bg"></i></a>
-                    <a href="#outer"><i class="size-icon-20 ic ic-twitter"></i></a>
-                    <a href="#outer"><i class="size-icon-20 ic ic-line"></i></a>
-                    <a href="#outer"><i class="size-icon-20 ic ic-youtube"></i></a>
+                    <a href="#instagram"><i class="size-icon-20 ic ic-instagram"></i></a>
+                    <a href="#facebook"><i class="size-icon-20 ic ic-facebook-no-bg"></i></a>
+                    <a href="#x"><i class="size-icon-20 ic ic-twitter"></i></a>
+                    <a href="#line"><i class="size-icon-20 ic ic-line"></i></a>
+                    <a href="#youtube"><i class="size-icon-20 ic ic-youtube"></i></a>
+                </div>
+                <div class="socialMenu-wrapper margin-top-md">
+                    <div id="instagram" class="socialMenu-group">
+                        <ul class="footer-menu social-menu">
+                            <li><a target="_blank" href="#outer">PORTER BANGKOK</a></li>
+                            <li><a target="_blank" href="#outer">PORTER_OFFICIAL</a></li>
+                            <li><a target="_blank" href="#outer">POTR_OFFICIAL</a></li>
+                            <li><a target="_blank" href="#outer">LUGGAGE LABEL_OFFICIAL</a></li>
+                    </div>
+                    <div id="facebook" class="socialMenu-group">
+                        <ul class="footer-menu social-menu">
+                            <li><a target="_blank" href="#outer">FACEBOOK</a></li>
+                        </ul>
+                    </div>
+                    <div id="x" class="socialMenu-group">
+                        <ul class="footer-menu social-menu">
+                            <li><a target="_blank" href="#outer">X TWITTER</a></li>
+                        </ul>
+                    </div>
+                    <div id="line" class="socialMenu-group">
+                        <ul class="footer-menu social-menu">
+                            <li><a target="_blank" href="#outer">Line 1</a></li>
+                            <li><a target="_blank" href="#outer">Line 2</a></li>
+                            <li><a target="_blank" href="#outer">Line 3</a></li>
+                        </ul>
+                    </div>
+                    <div id="youtube" class="socialMenu-group">
+                        <ul class="footer-menu social-menu">
+                            <li><a target="_blank" href="#outer">YOUTUBE</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
@@ -118,10 +149,6 @@
 <script src="<?php echo $root; ?>assets/js/common/theme.js?v=<?php echo time(); ?>"></script>
 <script src="<?php echo $root; ?>assets/js/common/theme-wp.js?v=<?php echo time(); ?>"></script>
 <script src="<?php echo $root; ?>assets/js/common/util.js?v=<?php echo time(); ?>"></script>
-<script src="<?php echo $root; ?>assets/js/index.js?v=<?php echo time(); ?>"></script>
-<script src="<?php echo $root; ?>assets/js/product-single.js?v=<?php echo time(); ?>"></script>
-<script src="<?php echo $root; ?>assets/js/shop-map.js?v=<?php echo time(); ?>"></script>
-<script src="<?php echo $root; ?>assets/js/shop-single.js?v=<?php echo time(); ?>"></script>
 <script src="<?php echo $root; ?>assets/js/template.js?v=<?php echo time(); ?>"></script>
 
 </body>

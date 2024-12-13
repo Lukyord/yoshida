@@ -1651,6 +1651,29 @@ jQuery(function ($) {
         $(this).find(".product-image img").attr("src", defaultImage);
     });
 });
+
+// FOOTER SOCIAL LINKS
+$("#footer .social-links a").on("click", function (e) {
+    e.preventDefault();
+    var _id = $(this).attr("href");
+    const wasActive = $(this).hasClass("active");
+
+    $("#footer .social-links a").removeClass("active");
+    if (wasActive) {
+        $(this).removeClass("active");
+    } else {
+        $(this).addClass("active");
+    }
+
+    if ($(_id).is(":visible")) {
+        $(_id).slideUp("fast");
+    } else {
+        $(".socialMenu-group").each(function () {
+            $(this).slideUp("fast");
+        });
+        $(_id).slideToggle("fast").addClass("active");
+    }
+});
 // EFFECT
 
 // ===== LENIS =====
